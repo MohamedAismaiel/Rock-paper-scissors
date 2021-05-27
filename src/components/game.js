@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Game = (props) => {
-  const { score, choice, setScore } = props;
+  const { choice, setScore } = props;
   const [house, setHouse] = useState("");
   const [playerWin, setPlayerWin] = useState("");
   const [counter, setCounter] = useState(3);
@@ -15,29 +15,29 @@ const Game = (props) => {
     newHousePick();
   }, []);
 
-  const Result = () => {
+  const Result = useCallback(() => {
     if (choice === "rock" && house === "paper") {
       setPlayerWin("Lose");
-      setScore(score - 1);
+      setScore((curstate) => curstate - 1);
     } else if (choice === "scissors" && house === "paper") {
       setPlayerWin("Win");
-      setScore(score + 1);
+      setScore((curstate) => curstate + 1);
     } else if (choice === "rock" && house === "scissors") {
       setPlayerWin("Win");
-      setScore(score + 1);
+      setScore((curstate) => curstate + 1);
     } else if (choice === "scissors" && house === "rock") {
       setPlayerWin("Win");
-      setScore(score + 1);
+      setScore((curstate) => curstate + 1);
     } else if (choice === "paper" && house === "rock") {
       setPlayerWin("Win");
-      setScore(score + 1);
+      setScore((curstate) => curstate + 1);
     } else if (choice === "paper" && house === "scissors") {
       setPlayerWin("Lose");
-      setScore(score - 1);
+      setScore((curstate) => curstate - 1);
     } else {
       setPlayerWin("Draw");
     }
-  };
+  }, [choice, house, setScore]);
 
   useEffect(() => {
     const timer =
@@ -49,7 +49,7 @@ const Game = (props) => {
     return () => {
       clearInterval(timer);
     };
-  }, [house, counter]);
+  }, [house, counter, Result]);
 
   return (
     <div className="game">
