@@ -1,0 +1,48 @@
+.footer {
+  margin-top: auto;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+
+  @media only screen and (max-width: $bp-768px) {
+    display: flex;
+    flex-direction: column;
+  }
+  .attribution {
+    font-size: 2.2rem;
+    justify-self: end;
+    transform: translateX(25rem);
+
+    @media only screen and (max-width: $bp-768px) {
+      transform: translateX(0);
+      order: 1;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+    }
+  }
+  .link:visited,
+  .link:link {
+    color: rgb(184, 105, 105);
+  }
+  button {
+    // order: -1;
+    justify-self: end;
+    margin-right: 1rem;
+    padding: 1rem 2.5rem;
+    border-radius: 0.8rem;
+    border: 3px solid $Header-Outline;
+    color: $Header-Outline;
+    background: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: lighten($Header-Outline, 20%);
+
+    &:hover {
+      background-color: rgba(black, 0.8);
+      color: white;
+      cursor: pointer;
+    }
+  }
+}

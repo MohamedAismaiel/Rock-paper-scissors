@@ -1,0 +1,49 @@
+@import "./scss/variables";
+@import "./scss/global";
+@import "./scss/header";
+@import "./scss/play";
+@import "./scss/game";
+@import "./scss/footer";
+@import "./scss/modal.scss";
+
+$bp-1500px: 93.75em; //1500px
+$bp-1200px: 75em;
+$bp-885px: 55.31em;
+$bp-768px: 48em;
+$bp-649px: 40.65em;
+$bp-395px: 24.68em;
+$bp-320px: 20em;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // to make 1rem =10 px
+  height: 100vh;
+  @media only screen and (max-width: $bp-1200px) {
+    font-size: 55%;
+  }
+  @media only screen and (max-width: $bp-768px) {
+    font-size: 50%;
+  }
+  @media only screen and (max-width: $bp-649px) {
+    font-size: 40%;
+  }
+}
+body {
+  font-size: 3rem;
+  background-color: hsl(214, 47%, 23%);
+  background-image: radial-gradient(rgb(31, 55, 86), rgb(20, 21, 57));
+
+  text-align: center;
+  color: #fff;
+}
+
+// Radial Gradient: hsl(214, 47%, 23%) to hsl(237, 49%, 15%)
